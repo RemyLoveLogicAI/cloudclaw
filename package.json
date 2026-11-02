@@ -1,0 +1,17 @@
+{
+  "name": "cloudclaw",
+  "version": "0.1.0",
+  "description": "Zero-VRAM agent runtime: circuit-breaker LLM router across free tiers, Telegram long-polling bridge, and MCP stdio tool binding.",
+  "type": "module",
+  "main": "src/router.mjs",
+  "engines": { "node": ">=18.17" },
+  "scripts": {
+    "test": "node --test tests/",
+    "start:telegram": "node examples/telegram-bridge.mjs",
+    "demo": "node examples/status-demo.mjs"
+  },
+  "peerDependencies": { "openai": ">=4.0.0" },
+  "peerDependenciesMeta": { "openai": { "optional": true } },
+  "keywords": ["llm", "router", "circuit-breaker", "mcp", "telegram", "agents"],
+  "license": "MIT"
+}
