@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Run test suite (offline, zero deps)
-        # Explicit glob: Node 22+ treats a bare directory arg as a module path
-        # (ERR_MODULE_NOT_FOUND), unlike Node 20.
-        run: node --test "tests/*.test.mjs"
+        # Unquoted so bash expands the glob. Node 20 does not glob natively but
+        # accepts explicit files; Node 22+ treats a bare directory arg as a
+        # module path (ERR_MODULE_NOT_FOUND). Unquoted works on both.
+        run: node --test tests/*.test.mjs
